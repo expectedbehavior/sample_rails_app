@@ -2,7 +2,6 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
   # ruby: circleci/ruby@1.1.2
-  ruby-orbs: sue445/ruby-orbs@1.6.2
 
 jobs:
   build:
@@ -14,15 +13,14 @@ jobs:
       - run:
           name: Install bundler
           command: gem install bundler:2.1
-      # - ruby/bundle-install
-      - ruby-orbs/bundle-install-with-gemfile-lock
+      - ruby/bundle-install
       - run:
           name: Which bundler?
           command: bundle -v
       - run:
           command: yarn install
       - run:
-          command: rails db:migrate
+          command: bundle exec rails db:migrate
       - run:
           command: bundle exec rails test
       # - ruby/install-deps
