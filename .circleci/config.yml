@@ -27,7 +27,7 @@ jobs:
       - save_cache: # Caches dependencies with a cache key
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - $CIRCLE_PROJECT_REPONAME
+            - ${CIRCLE_PROJECT_REPONAME}
   test:
     parallelism: 3
     docker:
