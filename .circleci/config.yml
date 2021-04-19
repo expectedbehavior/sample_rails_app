@@ -24,3 +24,5 @@ jobs:
       - run:
           command: bundle exec rails test
       # - ruby/install-deps
+      - store_test_results:
+          path: test-results
