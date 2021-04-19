@@ -2,13 +2,14 @@ language: ruby
 cache:
   yarn: true
   directories:
-     - /home/travis/.rvm/
+    - /home/travis/.rvm/
+    - node_modules
 before_install:
- - rvm install 2.6.3
- - nvm install 15.6
+  - rvm install 2.6.3
+  - nvm install 15.6
 install:
- - bundle install --verbose
- - yarn install
+  - bundle install --verbose
+  - yarn install
 script:
- - bundle exec rails db:migrate
- - bundle exec rails test
+  - bundle exec rails db:migrate
+  - bundle exec rails test
