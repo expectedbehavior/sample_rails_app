@@ -8,7 +8,7 @@ before_install:
   - rvm install 2.6.3
   - nvm install 15.6
 install:
-  - bundle install --verbose
+  - bundle install
   - yarn install
 script:
   - bundle exec rails db:migrate
