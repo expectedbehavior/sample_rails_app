@@ -27,7 +27,7 @@ jobs:
       - save_cache: # Caches dependencies with a cache key
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ~/circleci-cached-workflows
+            - sample_rails_app
   test:
     parallelism: 3
     docker:
@@ -36,8 +36,6 @@ jobs:
     steps:
       - restore_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-            - ~/circleci-cached-workflows
       - run:
           command: bundle exec rails test
       - store_test_results:
