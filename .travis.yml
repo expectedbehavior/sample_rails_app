@@ -2,6 +2,7 @@ language: ruby
 rvm:
  - 2.6.3
 install:
+ - bundle install --path vendor/bundle
  - yarn install
 script:
  - bundle exec rails db:migrate
