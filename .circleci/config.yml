@@ -8,6 +8,8 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
     executor: ruby/default
+    environment:
+      BUNDLE_JOBS: "3"
     steps:
       - checkout
       - run:
@@ -22,11 +24,20 @@ jobs:
           command: yarn install
       - run:
           command: bundle exec rails db:migrate
+      - save_cache: # Caches dependencies with a cache key
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/circleci-cached-workflows
   test:
+    parallelism: 3
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
     executor: ruby/default
     steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/circleci-cached-workflows
       - run:
           command: bundle exec rails test
       - store_test_results:
