@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/ruby:2.6-node
+      - image: circleci/ruby:2.6.3-stretch-node
     executor: ruby/default
     steps:
       - checkout
@@ -23,6 +23,5 @@ jobs:
           command: bundle exec rails db:migrate
       - run:
           command: bundle exec rails test
-      # - ruby/install-deps
       - store_test_results:
           path: ~/test-results
