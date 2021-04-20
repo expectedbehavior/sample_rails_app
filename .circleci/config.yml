@@ -9,7 +9,7 @@ jobs:
     # parallelism: 3
     environment:
       BUNDLE_JOBS: "3"
-      TESTOPTS: "--ci-dir=$CIRCLE_TEST_REPORTS/reports"
+      TESTOPTS: "--ci-dir=test-results/minitest"
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
       # - image: cimg/ruby:2.6.5-node
