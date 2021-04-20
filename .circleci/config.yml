@@ -28,7 +28,6 @@ jobs:
       - ruby2/install-deps
           # with-cache: false
       - node/install-packages:
-          # cache-key: yarn.lock
           pkg-manager: yarn
       - run:
           command: bundle exec rails db:migrate
