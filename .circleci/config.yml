@@ -10,8 +10,8 @@ jobs:
     environment:
       BUNDLE_JOBS: "3"
     docker:
-      # - image: circleci/ruby:2.6.3-stretch-node
-      - image: cimg/ruby:2.6.5-node
+      - image: circleci/ruby:2.6.3-stretch-node
+      # - image: cimg/ruby:2.6.5-node
     executor: ruby/default
     steps:
       - checkout
@@ -24,8 +24,8 @@ jobs:
       #     command: bundle -v
       # - run:
       #     command: yarn install
-      - ruby2/install-deps:
-          with-cache: false
+      - ruby2/install-deps
+          # with-cache: false
       - node/install-packages:
           # cache-key: yarn.lock
           pkg-manager: yarn
