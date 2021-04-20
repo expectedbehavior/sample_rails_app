@@ -2,6 +2,7 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
   ruby2: circleci/ruby@1.1.2
+  node: circleci/node@4.2.1
 
 jobs:
   build:
@@ -9,7 +10,8 @@ jobs:
     environment:
       BUNDLE_JOBS: "3"
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      # - image: circleci/ruby:2.6.3-stretch-node
+      - image: cimg/ruby:2.6.5-node
     executor: ruby/default
     steps:
       - checkout
