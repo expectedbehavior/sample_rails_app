@@ -19,12 +19,16 @@ jobs:
       #     name: Install bundler
       #     command: gem install bundler:2.1
       # - ruby/bundle-install
-      - ruby2/install-deps
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - run:
-          command: yarn install
+      # - run:
+      #     name: Which bundler?
+      #     command: bundle -v
+      # - run:
+      #     command: yarn install
+      - ruby2/install-deps:
+          with-cache: false
+      - node/install-packages:
+          # cache-key: yarn.lock
+          pkg-manager: yarn
       - run:
           command: bundle exec rails db:migrate
       - run:
