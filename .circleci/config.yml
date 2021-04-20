@@ -32,6 +32,8 @@ jobs:
       - run:
           command: bundle exec rails db:migrate
       - run:
-          command: bundle exec rails test
+          command: bundle exec rails test --junit --junit-filename=test-results/minitest/results.xml
+      - run: 
+          command: bundle exec rspec
       - store_test_results:
           path: ~/test-results
