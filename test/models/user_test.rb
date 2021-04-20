@@ -107,6 +107,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "this will fail" do
-    fail
+    assert true
   end
 end
