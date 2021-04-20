@@ -9,9 +9,7 @@ name: Labeler
 on: [pull_request]
 
 jobs:
-  circleci-config:
-    - .circleci/*
-  travis-config: .travis.yml
+  label:
 
     runs-on: ubuntu-latest
 
