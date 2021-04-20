@@ -6,7 +6,7 @@ orbs:
 
 jobs:
   build:
-    parallelism: 3
+    # parallelism: 3
     environment:
       BUNDLE_JOBS: "3"
     docker:
