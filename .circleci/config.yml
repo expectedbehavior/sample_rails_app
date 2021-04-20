@@ -34,7 +34,9 @@ jobs:
           command: bundle exec rails db:migrate
       - run:
           command: bundle exec rails test
+          when: always
       - run: 
           command: bundle exec rspec
+          when: always
       - store_test_results:
           path: test-results
