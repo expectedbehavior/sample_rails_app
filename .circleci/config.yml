@@ -9,6 +9,7 @@ jobs:
     # parallelism: 3
     environment:
       BUNDLE_JOBS: "3"
+      TESTOPTS: "--ci-dir=$CIRCLE_TEST_REPORTS/reports"
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
       # - image: cimg/ruby:2.6.5-node
@@ -32,7 +33,7 @@ jobs:
       - run:
           command: bundle exec rails db:migrate
       - run:
-          command: bundle exec rails test --junit --junit-filename=test-results/minitest/results.xml
+          command: bundle exec rails test
       - run: 
           command: bundle exec rspec
       - store_test_results:

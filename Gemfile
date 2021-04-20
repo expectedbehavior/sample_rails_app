@@ -46,7 +46,7 @@ group :test do
   gem 'guard-minitest',           '2.4.6'
   gem "rspec"
   gem "rspec_junit_formatter"
-  gem 'minitest-junit'
+  gem 'minitest-ci'
 end
 
 group :production do

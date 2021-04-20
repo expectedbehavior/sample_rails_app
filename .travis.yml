@@ -12,5 +12,5 @@ install:
   - yarn install
 script:
   - bundle exec rails db:migrate
-  - bundle exec rails test --junit --junit-filename=test-results/minitest/results.xml
+  - bundle exec rails test
   - bundle exec rspec
