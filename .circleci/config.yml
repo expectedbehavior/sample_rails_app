@@ -9,7 +9,7 @@ jobs:
     # parallelism: 3
     environment:
       BUNDLE_JOBS: "3"
-      TESTOPTS: "--ci-dir=test-results/minitest"
+      # TESTOPTS: "--ci-dir=test-results/minitest"
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
       # - image: cimg/ruby:2.6.5-node
@@ -35,8 +35,11 @@ jobs:
       - run:
           command: bundle exec rails test
           when: always
+      - store_test_results:
+          path: test/reports
       - run: 
-          command: bundle exec rspec
+          # command: bundle exec rspec
+          command: bundle exec rspec --format progress --format RspecJunitFormatter -o test/rspec-reports/rspec.xml
           when: always
       - store_test_results:
-          path: test-results
+          path: test/rspec-reports
