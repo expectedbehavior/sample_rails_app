@@ -36,4 +36,4 @@ jobs:
       - run: 
           command: bundle exec rspec
       - store_test_results:
-          path: ~/test-results
+          path: test-results
