@@ -1,0 +1,2 @@
+circleci-config: .circleci/*
+travis-config: .travis.yml
