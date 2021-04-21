@@ -1,4 +1,8 @@
 ENV['RAILS_ENV'] ||= 'test'
+require 'simplecov'
+SimpleCov.start 'rails'
+SimpleCov.command_name 'test'
+Rails.application.eager_load!
 require_relative '../config/environment'
 require 'rails/test_help'
 require "minitest/reporters"
