@@ -5,10 +5,10 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: Ruby
+name: Ruby Tests
 
 # on any push or pull_request
-on: [push, pull_request]
+on: [push]
 # on:
 #   push:
 #     branches: [ master ]
@@ -30,6 +30,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14'
+    - uses: c-hive/gha-yarn-cache@v1 # https://github.com/marketplace/actions/yarn-install-cache
     - run: yarn install
     - run: bundle exec rails db:migrate
     - name: Run minitest
