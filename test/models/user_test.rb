@@ -109,4 +109,8 @@ class UserTest < ActiveSupport::TestCase
   test "this will fail" do
     assert false
   end
+
+  test "this test will maybe fail?" do
+    assert Time.now.to_i % 2 == 0
+  end
 end

@@ -13,11 +13,11 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - uses: c-hive/gha-yarn-cache@v1 # https://github.com/marketplace/actions/yarn-install-cache
     - name: Setup Node # https://github.com/marketplace/actions/setup-node-js-environment
       uses: actions/setup-node@v2
       with:
         node-version: '14'
-    - uses: c-hive/gha-yarn-cache@v1 # https://github.com/marketplace/actions/yarn-install-cache
     - run: yarn install
     - run: bundle exec rails db:migrate
     - name: Run Tests
